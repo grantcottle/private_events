@@ -1,0 +1,30 @@
+<div class="row">
+ <div class="col-lg-4">
+   <div class="card">
+     <div class="card-body">
+       <h3 class="card-title">Members</h3> 
+       <h6 class="card-subtitle mb-2 text-muted"></h6>
+      </div> 
+    </div> 
+  </div> 
+
+  <div class="col-lg">
+    <ul class="list-group">
+       <% @users.each do |user| %> 
+         <li class="list-group-item">
+           <div class="row">
+            <div class="col-2">
+              <%= image_tag user_avatar(user), class: 'img-fluid img-thumbnail'%>
+             </div> 
+             <div class="col">
+               <p><%= user.username %></p>
+              <p><%= user.email %></p> 
+              <%= link_to "View Profile", user_path(user) %>
+             </div>
+           </div>
+
+         </li>
+         <% end %>
+     </ul> 
+   </div> 
+</div>

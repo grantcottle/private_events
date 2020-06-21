@@ -1,0 +1,22 @@
+
+<div class='row text-center justify-content-center'>
+  <div class='col-sm-3 my-5'>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-signin") do |f| %>
+      <h2 class="h3 mb-3 font-weight-normal">Please sign in</h2>
+      <%= f.input :email,
+        required: true,
+        label: false,
+        input_html: { autocomplete: "email", class: "form-control m-2", placeholder: "Email Address"} %>
+
+      <%= f.input :password,
+        required: false,
+        label: false,
+        input_html: { autocomplete: "current-password", class: "form-control m-2", placeholder: "Password" }
+      %>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable?  %>
+    <%= f.button :submit, "Sign in", class: "btn btn btn-lg btn-primary btn-block m-2" %>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+  </div>
+</div>
