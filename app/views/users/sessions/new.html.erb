@@ -14,7 +14,7 @@
         input_html: { autocomplete: "current-password", class: "form-control m-2", placeholder: "Password" }
       %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable?  %>
-    <%= f.button :submit, "Sign in", class: "btn btn btn-lg btn-primary btn-block m-2" %>
+    <%= f.button :submit, "Log in", class: "btn btn btn-lg btn-primary btn-block m-2" %>
   <% end %>
 
   <%= render "users/shared/links" %>
