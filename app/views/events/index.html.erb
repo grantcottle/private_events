@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Events</h1>
+  <div class="card-rows">
+    <% @events.each do |event| %>
+      <div class='card p-3'>
+        <%= image_tag event_cover_image(event, 700),  class: 'card-img-top', alt: 'cover_image' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= event.name %></h5>
+
+          <p class="card-text"><%= event.description %></p>
+          <p class="card-text"><small class="text-muted">Last updated <%= time_ago_in_words(event.updated_at)%> ago</small></p>
+          <%= link_to "#{ event.name }", event_path(event) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

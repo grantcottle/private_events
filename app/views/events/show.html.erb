@@ -1,0 +1,18 @@
+<div class='container'>
+  <div class='row m-5'>
+    <div class="col-sm m-2">
+      <div class="card mb-3">
+        <%= image_tag event_cover_image(@event, 700),  class: 'card-img-top', alt: 'cover_image' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @event.name %></h5>
+          <p class="card-text"><%= @event.description %></p>
+          <p class="card-text"><small class="text-muted">Last Updated <%= time_ago_in_words(@event.updated_at)%> ago</small></p>
+          <% if @event.creator == current_user %>
+            
+          <%= link_to "Edit #{ @event.name }", edit_event_path(@event) %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

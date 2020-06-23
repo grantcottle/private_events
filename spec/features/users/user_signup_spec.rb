@@ -7,7 +7,7 @@ RSpec.feature "User signup", type: :feature do
     visit new_user_registration_path
 
     fill_in 'user_username', with: user.username
-    page.attach_file("user_avatar", Rails.root + 'app/javascript/images/round-profile-image-placeholder.png') 
+    attach_file("user_avatar", "#{Rails.root}/spec/fixtures/avatar.png") 
     fill_in 'user_email', with: user.email
     fill_in 'user_password', with: user.password
     fill_in 'user_password_confirmation', with: user.password_confirmation

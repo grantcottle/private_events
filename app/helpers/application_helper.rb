@@ -8,4 +8,12 @@ module ApplicationHelper
       gravatar_image_url(user.email, size: size)
     end
   end
+  
+  def event_cover_image(event, size = 80)
+    if event.cover_image.attached?
+      event.cover_image.variant(resize_to_limit: [size, size])
+    else
+      'placeholder.jpg' 
+    end
+  end
 end

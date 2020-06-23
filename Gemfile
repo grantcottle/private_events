@@ -21,6 +21,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'gravatar_image_tag'
 gem 'image_processing'
+gem 'awesome_print'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

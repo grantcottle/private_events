@@ -1,0 +1,9 @@
+<%= simple_form_for @event do |f| %>
+<%= image_tag event_cover_image(@event, 700), width: '100%', height: 'auto'%>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :date %>
+  <%= f.input :location %>
+  <%= f.input :cover_image, as: :file %>
+  <%= f.button :submit, "Create Event", class: 'btn btn-primary', id: 'create_event_btn' %>
+<% end %>
