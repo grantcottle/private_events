@@ -1,22 +1,30 @@
+<section>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="d-flex flex-column align-items-center">
+      <%= image_tag user_avatar(@user, 400), flass: 'img-fluid img-thumbnail' %>
 
+      <h2 class="m-3"><%= @user.username %></h2>
+      <section class='p-4'>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Gravida neque convallis a cras semper auctor. Diam vulputate ut pharetra sit. Massa massa ultricies mi quis hendrerit dolor magna eget est. Vel quam elementum pulvinar etiam non quam lacus suspendisse. Turpis tincidunt id aliquet risus feugiat in. At consectetur lorem donec massa sapien faucibus. Donec pretium vulputate sapien nec. Nisl nisi scelerisque eu ultrices vitae. Nam libero justo laoreet sit. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Aliquet bibendum enim facilisis gravida neque convallis. Eros donec ac odio tempor orci dapibus ultrices. Condimentum lacinia quis vel eros donec ac odio tempor orci. Blandit libero volutpat sed cras ornare arcu dui vivamus. Aliquam sem et tortor consequat. Orci porta non pulvinar neque laoreet. Sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Senectus et netus et malesuada fames. Urna porttitor rhoncus dolor purus non enim praesent.</p>
 
-<div class='row'>
-  <div class="col-lg">
-    <div class="card">
-      <div class="card-body">
-
-        <div class='row'>
-          <div class="col-2">
-            <%= image_tag user_avatar(@user, 80), class: 'img-fluid img-thumbnail'%>
-            <%# <%= image_tag @user.avatar , size: '80x80' ,  class: 'rounded-circle'%>
-          </div>
-          <div class='col-8'>
-            <h3 class='card-title'><%= @user.username %></h3>
-            <h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
-            <p><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
-          </div>
-        </div>
-      </div>
+        <p>Sed egestas egestas fringilla phasellus. Nibh sed pulvinar proin gravida hendrerit lectus. Interdum posuere lorem ipsum dolor sit. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque. Potenti nullam ac tortor vitae purus faucibus ornare. Donec ac odio tempor orci dapibus. Gravida neque convallis a cras semper auctor. Amet est placerat in egestas erat. Leo a diam sollicitudin tempor id eu. Blandit massa enim nec dui nunc mattis enim ut. Nunc mi ipsum faucibus vitae. A erat nam at lectus urna duis convallis convallis. In aliquam sem fringilla ut.</p>
+      </section>
     </div>
+  </div>
+</section>
+
+<div class='mt-3'>
+  <div class='justify-content-start btn-group'>
+    <%= link_to  live_events_user_path(@user), id: 'live-events-button', class:' btn btn-secondary',remote: true   do %>
+    Live Events (<%= @user.live_events.count %>)
+    <% end %>
+    <%= link_to past_events_user_path(@user), id: 'past-events-button', class:'btn btn-secondary', remote: true do %>
+      Past Events (<%= @user.past_events.count %>)
+      <% end %> 
+  </div>
+  <hr class='my-r'>
+    
+  <div id='events-content'>
+    <%= render partial: 'events/card_display', locals: {events:  @user.events}%>
   </div>
 </div>

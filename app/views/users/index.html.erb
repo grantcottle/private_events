@@ -1,30 +1,43 @@
 <div class="row">
- <div class="col-lg-4">
-   <div class="card">
-     <div class="card-body">
-       <h3 class="card-title">Members</h3> 
-       <h6 class="card-subtitle mb-2 text-muted"></h6>
-      </div> 
-    </div> 
-  </div> 
+  <div class="col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Members</h3>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+      </div>
+    </div>
+  </div>
 
   <div class="col-lg">
     <ul class="list-group">
-       <% @users.each do |user| %> 
-         <li class="list-group-item">
-           <div class="row">
+      <% @users.each do |user| %>
+        <li class="list-group-item">
+          <div class="row">
             <div class="col-2">
               <%= image_tag user_avatar(user), class: 'img-fluid img-thumbnail'%>
-             </div> 
-             <div class="col">
-               <p><%= user.username %></p>
-              <p><%= user.email %></p> 
-              <%= link_to "View Profile", user_path(user) %>
-             </div>
-           </div>
+            </div>
+            <div class="col">
+              <p><%= user.username %></p>
+              <p><%= user.email %></p>
 
-         </li>
-         <% end %>
-     </ul> 
-   </div> 
+
+              <div
+                class="inline-block"
+                data-controller='hovercard'
+                data-hovercard-url-value="<%= hovercard_user_path(user) %>"
+                data-action="mouseenter->hovercard#show mouseleave->hovercard#hide"
+                >
+                <%= link_to user.username, user , class: 'branded-link'%>
+              </div>
+
+            </div>
+            <div class="col">
+              <h6>Created Events (<%= user.events.count %>)</h4>
+            </div>
+          </div>
+
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
