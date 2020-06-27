@@ -8,6 +8,14 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def past
+    @past_events = Event.past_events
+  end
+
+  def live
+    @live_events = Event.live_events
+  end
+
   def new
     @event = Event.new
   end

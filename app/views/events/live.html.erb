@@ -1,12 +1,12 @@
 <div class="container">
   <h1>Events</h1>
   <div>
-    <%= link_to "All Events", events_path %>
+    <%= link_to 'All Events', events_path %>
     <%= link_to 'Past Events', past_events_path %>
     <%= link_to 'Live Events', live_events_path %>
   </div>
   <hr class="my-r">
   <div class="row row-cols-1 row-cold-xs-2 row-cols-md-3 row-cols-lg-4">
-    <%= render partial: 'event_display', locals: {events:  @events}%>
+    <%= render partial: 'event_display', locals: {events:  @live_events}%>
   </div>
 </div>

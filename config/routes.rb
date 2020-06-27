@@ -11,4 +11,6 @@ Rails.application.routes.draw do
     end
   end
   resources :events
+  get 'live_events', to: 'events#live'
+  get 'past_events', to: 'events#past'
 end
