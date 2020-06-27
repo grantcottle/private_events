@@ -19,14 +19,7 @@
             <div class="col">
               <p><%= user.username %></p>
               <p><%= user.email %></p>
-
-
-              <div
-                class="inline-block"
-                data-controller='hovercard'
-                data-hovercard-url-value="<%= hovercard_user_path(user) %>"
-                data-action="mouseenter->hovercard#show mouseleave->hovercard#hide"
-                >
+              <div>
                 <%= link_to user.username, user , class: 'branded-link'%>
               </div>
 

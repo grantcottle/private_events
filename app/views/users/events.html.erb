@@ -1,5 +1,5 @@
-  <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4">
-    <% events.each do |event| %>
+<div data-action="click->eventcontent#live_events" data-target="eventcontent.content" class="row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-lg-4">
+    <% @events.each do |event| %>
       <div class='col-10 mb-4'>
         <div class='card p-3'>
           <%= image_tag event_cover_image(event, 700),  class: 'card-img-top', alt: 'cover_image' %>

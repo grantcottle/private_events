@@ -13,18 +13,54 @@
   </div>
 </section>
 
-<div class='mt-3'>
-  <div class='justify-content-start btn-group'>
-    <%= link_to  live_events_user_path(@user), id: 'live-events-button', class:' btn btn-secondary',remote: true   do %>
-    Live Events (<%= @user.live_events.count %>)
-    <% end %>
-    <%= link_to past_events_user_path(@user), id: 'past-events-button', class:'btn btn-secondary', remote: true do %>
-      Past Events (<%= @user.past_events.count %>)
-      <% end %> 
+<section >
+  <div class='row'>
+    <div class='mt-3 col-8'>
+      <div
+        data-controller="eventcontent"
+        data-eventcontent-class="invisible"
+        >
+        <div class='justify-content-start btn-group' >
+          <button
+            class="btn btn-secondary"
+            data-action="eventcontent#toggle"
+            >Live Events (<%= @user.live_events.count%>)</button>
+          <button
+            class="btn btn-secondary"
+            data-action="eventcontent#toggle"
+            >Past Events (<%= @user.past_events.count%>)</button>
+        </div>
+
+        <hr class='my-r'>
+        <div class='content bg-light' >
+          <div
+            class=""
+            data-action="click->eventcontent#toggle"
+            data-target="eventcontent.content"
+            >
+            <%= render partial: 'events/event_display', locals: {events: @user.live_events}  %>
+          </div>
+          <div
+            class="invisible"
+            data-action="click->eventcontent#toggle"
+            data-target="eventcontent.content"
+            >
+            <%= render partial: 'events/event_display', locals: {events: @user.past_events}  %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 mt-3">
+        <div class='justify-content-start btn-group' >
+          <button class="btn btn-outline-primary">Follow</button>
+        </div>
+      <div class="title">
+
+      </div> 
+      <hr class="my-r">
+      <div class=" container bg-light" >
+        
+      </div>
+    </div>
   </div>
-  <hr class='my-r'>
-    
-  <div id='events-content'>
-    <%= render partial: 'events/card_display', locals: {events:  @user.events}%>
-  </div>
-</div>
+</section>

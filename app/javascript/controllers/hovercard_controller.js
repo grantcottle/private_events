@@ -22,7 +22,7 @@ export default class extends Controller {
 
     hide() {
         if (this.hasCardTarget) {
-            this.cardTarget.style.visibility="hidden";
+            this.cardTarget.classList.toggle("d-none");
         }
     }
 

@@ -1,4 +1,7 @@
 <div class="container">
   <h1>Events</h1>
-  <%= render partial: 'card_display', locals: {events:  @events}%>
+  <hr class="my-r">
+  <div class="row row-cols-1 row-cold-xs-2 row-cols-md-3 row-cols-lg-4">
+    <%= render partial: 'event_display', locals: {events:  @events}%>
+  </div>
 </div>

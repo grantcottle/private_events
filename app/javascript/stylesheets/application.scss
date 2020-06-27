@@ -1,5 +1,8 @@
 @import "bootstrap/scss/bootstrap";
 @import "custom";
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/v4-shims';
 
 [data-tooltip-arrow]::after {
     content: " ";
@@ -9,3 +12,17 @@
     border-width: 2rem;
     border-color: white transparent transparent transparent;
 }
+
+body {
+    min-height: 100vh;
+    position: relative;
+    margin:0;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 100px;
+    width: 100%; 
+} 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy past_events live_events hovercard]
+  before_action :set_user, only: %i[show edit update destroy hovercard]
   before_action :authenticate_user!, only: [:edit]
   def index
     @users = User.all
@@ -33,22 +33,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def past_events
-    puts 'debug'
-    @past_events = @user.past_events
-    respond_to do |format|
-      format.html { redirect_to @user, notice: 'past_events.' }
-      format.js
-    end
-  end
-
-  def live_events
-    @live_events = @user.live_events
-    respond_to do |format|
-      format.html { redirect_to @user, notice: 'live_events.' }
-      format.js
-    end
-  end
 
   private
 
