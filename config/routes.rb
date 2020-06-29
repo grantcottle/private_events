@@ -10,7 +10,9 @@ Rails.application.routes.draw do
       get :live_events
     end
   end
-  resources :events
+  resources :events do
+    resources :invitations, only: [:new, :create]
+  end
   get 'live_events', to: 'events#live'
   get 'past_events', to: 'events#past'
 end

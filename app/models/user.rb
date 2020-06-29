@@ -9,11 +9,11 @@ class User < ApplicationRecord
   has_many :attended_events, through: :invitations
 
   def past_events
-    self.events.past_events
+    self.attended_events.past_events
   end
 
   def live_events
-    self.events.live_events
+    self.attended_events.live_events
   end
 
 end
