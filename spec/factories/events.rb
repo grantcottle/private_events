@@ -1,9 +1,10 @@
+include ActionDispatch::TestProcess
 FactoryBot.define do
   factory :event do
-    name { "MyString" }
-    description { "MyString" }
-    date { "2020-06-22 14:32:14" }
-    location { "MyString" }
+    name { Faker::Lorem.word  }
+    description { Faker::Lorem.sentence }
+    date {Faker::Time.between(from: DateTime.now - 30, to: DateTime.now + 50) }
+    location { Faker::Address.street_name }
     creator { nil }
   end
 end
