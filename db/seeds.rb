@@ -9,8 +9,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 include ActionDispatch::TestProcess
 5.times do |n|
-  user = FactoryBot.create(:random_user, avatar: fixture_file_upload(Rails.root.join('app','assets', 'images','avatar',"avatar_#{n}.jpg")))
+  user = FactoryBot.create(:random_user, avatar: fixture_file_upload(Rails.root.join('app','assets', 'images','avatar',"avatar_#{n}.jpg"), 'image/jpg'))
   5.times do |e|
-    FactoryBot.create(:event, creator_id: user.id, cover_image: fixture_file_upload(Rails.root.join('app','assets', 'images','cover_image',"event_#{e}.jpeg")))
+    FactoryBot.create(:event, creator_id: user.id, cover_image: fixture_file_upload(Rails.root.join('app','assets', 'images','cover_image',"event_#{e}.jpeg"), 'image/jpeg'))
   end
 end
