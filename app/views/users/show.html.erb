@@ -31,35 +31,45 @@
             >Past Events (<%= @user.past_events.count%>)</button>
         </div>
 
-        <hr class='my-r'>
-        <div class='content bg-light' >
-          <div
-            class=""
-            data-action="click->eventcontent#toggle"
-            data-target="eventcontent.content"
-            >
-            <%= render partial: 'events/event_display', locals: {events: @user.live_events}  %>
-          </div>
-          <div
-            class="invisible"
-            data-action="click->eventcontent#toggle"
-            data-target="eventcontent.content"
-            >
-            <%= render partial: 'events/event_display', locals: {events: @user.past_events}  %>
-          </div>
-        </div>
+  <hr class='my-r'>
+  <div class='content bg-light' >
+    <div
+      class=""
+      data-action="click->eventcontent#toggle"
+      data-target="eventcontent.content"
+      >
+      <%= render partial: 'events/event_display', locals: {events: @user.live_events}  %>
+    </div>
+    <div
+      class="invisible"
+      data-action="click->eventcontent#toggle"
+      data-target="eventcontent.content"
+      >
+      <%= render partial: 'events/event_display', locals: {events: @user.past_events}  %>
+    </div>
+  </div>
+  <div class='content bg-light p-4' >
+    <button
+      class="btn btn-secondary"
+      >Created Events (<%= @user.events.count%>)</button>
+    <div
+      >
+    <hr class='my-r'>
+      <%= render partial: 'events/event_display', locals: {events: @user.events}  %>
+    </div>
+  </div>
       </div>
     </div>
     <div class="col-4 mt-3">
-        <div class='justify-content-start btn-group' >
-          <button class="btn btn-outline-primary">Follow</button>
-        </div>
+      <div class='justify-content-start btn-group' >
+        <button class="btn btn-outline-primary">Follow</button>
+      </div>
       <div class="title">
 
-      </div> 
+      </div>
       <hr class="my-r">
       <div class=" container bg-light" >
-        
+
       </div>
     </div>
   </div>
