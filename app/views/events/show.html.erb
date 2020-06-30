@@ -8,9 +8,11 @@
   <%# Listing Hero Details%>
   <div class='listing-hero-details__main-container'>
     <div class="listing-hero_badge-container">
-      <div class="row no-gutters">
-        <div class="col-8 listing-hero" style="height:300px">
-          <%= image_tag event_cover_image(@event),  class: 'img-fluid mh-100' %>
+      <div class="row no-gutters" >
+        <div class="col-8 listing-hero" >
+          <div class='alignfull'>
+            <%= image_tag event_cover_image(@event, 1080, 540),  class: 'img-fluid' %>
+          </div>
         </div>
         <div class="col-4 d-flex flex-column p-4 listing-panel  justify-content-between">
           <div class='d-flex flex-column'>
@@ -41,19 +43,22 @@
   </div>
   <div class='listing-body'>
     <%# Listing Card Panel%>
-    <div class="listing-panel-wrapper row pt-2 pl-2">
+    <div class="listing-panel-wrapper row pt-2 pl-2 border-top border-bottom">
       <div class="col-8 d-flex flex-row">
-        <i class="fas fa-share-square fa-2x m-2"></i>
+        <i class="fa fa-share-square fa-2x m-2"></i>
         <i class="far fa-heart fa-2x m-2"></i>
            <% if @event.creator == current_user %>
-            <%= link_to "Edit event", edit_event_path(@event), class: 'btn btn-warning' %> 
+            <%= link_to "Edit event", edit_event_path(@event), class: 'btn btn-caution' %> 
            <% end %>
       </div>
       <div class="col-2 d-flex flex-column">
-        <%= link_to 'Register',new_event_invitation_path(@event),class:'btn btn-success', id: 'register-button' %>
+        <%= link_to 'Register', new_event_invitation_path(@event),
+          class:'btn btn-success', id: 'register-button',
+          remote: true, data: { toggle: 'modal', target: '#register-modal'} 
+        %>
+          <%= render 'register_modal' %> 
       </div>
     </div>
-    <hr class="my-r">
     <%# Listing Card Info%>
     <div class="container listing-card-info">
       <div class="col-8">

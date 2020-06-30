@@ -9,9 +9,9 @@ module ApplicationHelper
     end
   end
   
-  def event_cover_image(event, size = 700)
+  def event_cover_image(event, width=600 ,height = 300)
     if event.cover_image.attached?
-      event.cover_image.variant(resize_to_limit: [size, size])
+      event.cover_image.variant(resize_to_limit: [width, height])
     else
       ActionController::Base.helpers.image_url('placeholder.jpg', size: size)
     end
