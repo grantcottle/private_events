@@ -19,7 +19,6 @@ gem 'image_processing'
 gem 'jbuilder', '~> 2.7'
 gem 'simple_form'
 gem "aws-sdk-s3", require: false
-
 #gem 'image_processing', '~> 1.2'
 
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -30,6 +29,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
