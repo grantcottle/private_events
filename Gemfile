@@ -18,6 +18,7 @@ gem 'gravatar_image_tag'
 gem 'image_processing'
 gem 'jbuilder', '~> 2.7'
 gem 'simple_form'
+gem "aws-sdk-s3", require: false
 
 #gem 'image_processing', '~> 1.2'
 
