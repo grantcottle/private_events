@@ -6,7 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
-
+config/master.key
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
